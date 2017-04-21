@@ -1,0 +1,9 @@
+.main-input {
+  margin: 0 auto;
+  width: 450px;
+  height: 100px;
+}
+
+.main-input CodeMirror {
+  text-align: left;
+}
