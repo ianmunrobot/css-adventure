@@ -9,6 +9,7 @@ class App extends Component {
         <div className="App-header">
           <h2>CSS Adventure</h2>
         </div>
+        {this.props.children}
         <div className="text-input">
           <TextInput />
         </div>
