@@ -1,28 +1,14 @@
- const parseRuleToReactObject = ruleString => {
-  const rule = ruleString.match(/\{[\S\s]+\}/g);
-  if (!rule) {
-    let err = new Error('invalid rule')
-    throw err;
-  }
-  const declarations = ruleToDeclarationsObject(rule[0].slice(1, -1))
-  const selector = kebabToCamelCase(stringToCSSSelector(ruleString));
-  return {
-    selector,
-    declarations,
-  }
-}
-
- const stringToCSSSelector = string => {
+export const stringToCSSSelector = string => {
   if (string[0] === '.') {
-    let ruleStart = string.indexOf('{')
+    const ruleStart = string.indexOf('{')
     return string.slice(1, ruleStart).trim();
   } else {
-    let err = new Error('selector is not a class')
+    const err = new Error('selector is not a class')
     throw err;
   }
 }
 
- const kebabToCamelCase = selectorString =>
+export const kebabToCamelCase = selectorString =>
   selectorString.split('-')
     .map((word, index) => {
       if(index > 0 && word.length > 0) {
@@ -32,19 +18,33 @@
     })
     .join('')
 
- const ruleToDeclarationsObject = ruleString =>
+export const ruleToDeclarationsObject = ruleString =>
   ruleString.trim()
     .split(';')
     .reduce((accum, curr) => {
       if (curr.indexOf(':') === -1) {
         return accum;
       }
-      let splitDeclaration = curr.split(':');
-      let prop = kebabToCamelCase(splitDeclaration[0].trim());
-      let val = splitDeclaration[1].trim();
+      const splitDeclaration = curr.split(':');
+      const prop = kebabToCamelCase(splitDeclaration[0].trim());
+      const val = splitDeclaration[1].trim();
       accum[prop] = val;
       return accum;
     }, {})
+
+export const parseRuleToReactObject = ruleString => {
+  const rule = ruleString.match(/\{[\S\s]+\}/g);
+  if (!rule) {
+    const err = new Error('invalid rule')
+    throw err;
+  }
+  const declarations = ruleToDeclarationsObject(rule[0].slice(1, -1))
+  const selector = kebabToCamelCase(stringToCSSSelector(ruleString));
+  return {
+    selector,
+    declarations,
+  }
+}
 
 // test:
 // let text = `.box {
