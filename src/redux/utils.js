@@ -1,10 +1,10 @@
 export const stringToCSSSelector = string => {
   if (string[0] === '.') {
     const ruleStart = string.indexOf('{')
-    return string.slice(1, ruleStart).trim();
+    return string.slice(1, ruleStart).trim()
   } else {
     const err = new Error('selector is not a class')
-    throw err;
+    throw err
   }
 }
 
@@ -23,26 +23,33 @@ export const ruleToDeclarationsObject = ruleString =>
     .split(';')
     .reduce((accum, curr) => {
       if (curr.indexOf(':') === -1) {
-        return accum;
+        return accum
       }
-      const splitDeclaration = curr.split(':');
-      const prop = kebabToCamelCase(splitDeclaration[0].trim());
-      const val = splitDeclaration[1].trim();
-      accum[prop] = val;
-      return accum;
+      const splitDeclaration = curr.split(':')
+      const prop = kebabToCamelCase(splitDeclaration[0].trim())
+      const val = splitDeclaration[1].trim()
+      accum[prop] = val
+      return accum
     }, {})
 
 export const parseRuleToReactObject = ruleString => {
   const rule = ruleString.match(/\{[\S\s]+\}/g);
   if (!rule) {
     const err = new Error('invalid rule')
-    throw err;
+    throw err
   }
   const declarations = ruleToDeclarationsObject(rule[0].slice(1, -1))
-  const selector = kebabToCamelCase(stringToCSSSelector(ruleString));
+  const selector = kebabToCamelCase(stringToCSSSelector(ruleString))
   return {
     selector,
     declarations,
+  }
+}
+
+export const rulesheetToStyleObjects = text => {
+  let matches = text.match(/([\w-_#.]+)\s*\{\s*([^}]*?)\s*}/g)
+  if (matches) {
+   return matches.map(parseRuleToReactObject)
   }
 }
 

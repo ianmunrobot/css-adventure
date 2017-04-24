@@ -1,22 +1,19 @@
-import { parseRuleToReactObject } from '../utils'
-
 const initialState = []
 
-export const ADD_RULE = 'ADD_RULE'
+export const SET_RULES = 'SET_RULES'
 
-export const addRule = (rule) => {
+export const setRules = (rules) => {
   return {
-    type: ADD_RULE,
-    rule,
+    type: SET_RULES,
+    rules,
   }
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ADD_RULE:
-      let newRule = parseRuleToReactObject(action.rule)
-      return [...state, newRule]
+    case SET_RULES:
+      return action.rules
     default:
-      return state;
+      return state
   }
 }

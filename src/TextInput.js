@@ -9,8 +9,21 @@ import 'codemirror/mode/css/css.js'
 import 'codemirror/keymap/sublime.js'
 import 'codemirror/addon/comment/comment.js'
 import 'codemirror/addon/edit/closebrackets.js'
+import 'codemirror/addon/lint/lint.css'
+import 'codemirror/addon/lint/lint.js'
+import 'codemirror/addon/lint/css-lint.js'
 
-import { addRule } from './redux/reducers/ruleReducer'
+import { setRules } from './redux/reducers/ruleReducer'
+import { rulesheetToStyleObjects } from './redux/utils'
+
+// http://stackoverflow.com/questions/15505225/inject-css-stylesheet-as-string-using-javascript
+(function() {
+    var node = document.createElement('style');
+    document.body.appendChild(node);
+    window.addStyleString = function(str) {
+        node.innerHTML = str;
+    }
+}());
 
 class TextInput extends React.Component {
   constructor(props) {
@@ -28,20 +41,30 @@ class TextInput extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.addRule(this.state.code)
-    this.setState({
-      code: ''
-    })
+    let matches = rulesheetToStyleObjects(this.state.code)
+    if (matches) {
+      // this.props.setRules(matches)
+      window.addStyleString(this.state.code)
+    }
   }
 
   render() {
+    const codeMirrorOptions = {
+      mode: 'css',
+      keyMap: 'sublime',
+      autoCloseBrackets: true,
+      lint: true,
+      gutters: ["CodeMirror-lint-markers"],
+      autofocus: true,
+    }
+
     return(
       <div className="main-form" onSubmit={this.handleSubmit}>
         <form>
           {/*<textarea name="cssInput" />*/}
           <button type="submit">add rule!</button>
         </form>
-        <CodeMirror style={{ 'text-align': 'left'}}value={this.state.code} onChange={this.handleChange} options={{mode: 'css', keyMap: 'sublime', autoCloseBrackets: true,}}/>
+        <CodeMirror style={{ 'text-align': 'left'}}value={this.state.code} onChange={this.handleChange} options={codeMirrorOptions}/>
       </div>
     )
   }
@@ -52,8 +75,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  addRule: rule => {
-    dispatch(addRule(rule))
+  setRules: rule => {
+    dispatch(setRules(rule))
   }
 })
 
