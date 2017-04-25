@@ -1,20 +1,41 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
+import ReactToolTip from 'react-tooltip'
 
 import './Challenge1.css'
 
-const Challenge1 = props => {
-  let style = props.rules.length ? props.rules[0].declarations : {}
-  return (
-    <div className="main-challenge">
-      <div className="box black-box-left" style={style}>
-        txt left
+class Challenge1 extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      styles: ''
+    }
+  }
+
+  handleHover = (e) => {
+    this.setState({
+      styles: e.target.className
+    })
+  }
+
+  render () {
+    const styles = this.state.styles.split(' ').map((singleClassName, id) => (<p key={id}>{singleClassName}</p>))
+
+    return (
+      <div className="main-challenge">
+        <ReactToolTip id='class' aria-haspopup="true">
+          {styles}
+        </ReactToolTip>
+        <div className="box black-box-left" data-tip data-for="class" onMouseOver={this.handleHover}>
+          txt left
+        </div>
+        <div className="box black-box-right" data-tip data-for="class" onMouseOver={this.handleHover}>
+          txt right
+        </div>
       </div>
-      <div className="box black-box-right">
-        txt right
-      </div>
-    </div>
-  )
+    )
+  }
+
 }
 
 const mapState = ({rules}) => ({
