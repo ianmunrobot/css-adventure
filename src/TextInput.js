@@ -28,7 +28,7 @@ import { rulesheetToStyleObjects } from './redux/parseUtils'
 
 class TextInput extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.customKeyMap = {
         'Cmd-Enter': (cm) => {
           this.handleSubmit()
@@ -50,7 +50,6 @@ class TextInput extends React.Component {
     if (e) e.preventDefault()
     let matches = rulesheetToStyleObjects(this.state.code)
     if (matches) {
-      // this.props.setRules(matches)
       window.addStyleString(this.state.code)
     }
   }
