@@ -2,6 +2,7 @@
 export const isVisible = (elem) => {
     if (!(elem instanceof Element)) throw Error('DomUtil: elem is not an element.');
     const style = getComputedStyle(elem);
+    console.log(style);
     if (style.display === 'none') return false;
     if (style.visibility !== 'visible') return false;
     if (style.opacity < 0.1) return false;
@@ -13,6 +14,7 @@ export const isVisible = (elem) => {
         x: elem.getBoundingClientRect().left + elem.offsetWidth / 2,
         y: elem.getBoundingClientRect().top + elem.offsetHeight / 2
     };
+    console.log('elemcenter', elemCenter);
     if (elemCenter.x < 0) return false;
     if (elemCenter.x > (document.documentElement.clientWidth || window.innerWidth)) return false;
     if (elemCenter.y < 0) return false;
