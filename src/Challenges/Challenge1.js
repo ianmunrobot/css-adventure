@@ -4,33 +4,67 @@ import ReactToolTip from 'react-tooltip'
 
 import './Challenge1.css'
 
+import { setTests } from '../redux/reducers/testReducer'
+import { isVisible, overlap } from '../testFunctions'
+
+const challengeOneTest = () => {
+  let element = document.getElementById('stuckFriend')
+  let isOverlapping = overlap(element, document.getElementById('box-left')) || overlap(element, document.getElementById('box-right'))
+  // console.log('overlap?', isOverlapping);
+  let visible = isVisible(element)
+  if (!isOverlapping && visible) {
+    console.log('You saved me!')
+  } else {
+    console.log('overlap?', isOverlapping, '\nvisible?', visible)
+    console.log('not found')
+  }
+}
+
+const challengeOneTests = [challengeOneTest]
+
 class Challenge1 extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      styles: ''
+      classNames: ``,
+      foundMessage: `I'm still stuck!`,
     }
+  }
+
+  componentDidMount () {
+    this.props.setTests(challengeOneTests)
   }
 
   handleHover = (e) => {
     this.setState({
-      styles: e.target.className
+      classNames: e.target.className
     })
   }
 
   render () {
-    const styles = this.state.styles.split(' ').map((singleClassName, id) => (<p key={id}>{singleClassName}</p>))
+    const styles =
+      this.state.classNames
+        .split(' ')
+        .map((singleClassName, id) => (<p key={id}>{`.${singleClassName}`}</p>))
 
     return (
-      <div className="main-challenge">
-        <ReactToolTip id='class' aria-haspopup="true">
-          {styles}
-        </ReactToolTip>
-        <div className="box black-box-left" data-tip data-for="class" onMouseOver={this.handleHover}>
-          txt left
-        </div>
-        <div className="box black-box-right" data-tip data-for="class" onMouseOver={this.handleHover}>
-          txt right
+      <div className="wrapper">
+        <div className="main-challenge">
+          <ReactToolTip id='class' aria-haspopup="true">
+            {styles}
+          </ReactToolTip>
+          <div className="box black-box-left" id="box-left" data-tip data-for="class" onMouseOver={this.handleHover}>
+            txt left
+          </div>
+          <div className="box black-box-right" id="box-right" data-tip data-for="class" onMouseOver={this.handleHover}>
+            txt right
+          </div>
+          <div className="quote">
+            Help! I'm stuck behind these black boxes! Can you save me?
+          </div>
+          <div className="stuckFriend" id="stuckFriend" onMouseOver={this.handleHover}>
+            {this.state.foundMessage}
+          </div>
         </div>
       </div>
     )
@@ -42,4 +76,10 @@ const mapState = ({rules}) => ({
   rules
 })
 
-export default connect(mapState)(Challenge1)
+const mapDispatch = (dispatch) => ({
+  setTests: (test) => {
+    dispatch(setTests(test))
+  }
+})
+
+export default connect(mapState, mapDispatch)(Challenge1)
