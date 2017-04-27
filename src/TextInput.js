@@ -17,6 +17,7 @@ import { setRules } from './redux/reducers/ruleReducer'
 import { runTests } from './testFunctions'
 import { rulesheetToStyleObjects } from './redux/parseUtils'
 
+// add a window function to set the innerHTML of a style tag at tn
 // http://stackoverflow.com/questions/15505225/inject-css-stylesheet-as-string-using-javascript
 (function() {
     var node = document.createElement('style')
@@ -33,7 +34,7 @@ class TextInput extends React.Component {
         'Cmd-Enter': (cm) => {
           this.handleSubmit()
           runTests(this.props.tests)
-        }
+        },
       }
     this.state = {
       code: '',
@@ -68,10 +69,9 @@ class TextInput extends React.Component {
     return(
       <div className="main-form" onSubmit={this.handleSubmit}>
         <form>
-          {/*<textarea name="cssInput" />*/}
           <button type="submit">add rule!</button>
         </form>
-        <CodeMirror style={{'text-align': 'left'}}value={this.state.code} onChange={this.handleChange} options={codeMirrorOptions}/>
+        <CodeMirror value={this.state.code} onChange={this.handleChange} options={codeMirrorOptions}/>
       </div>
     )
   }
