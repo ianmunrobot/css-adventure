@@ -14,20 +14,27 @@ import 'codemirror/addon/lint/lint.js'
 import 'codemirror/addon/lint/css-lint.js'
 
 import { setRules } from './redux/reducers/ruleReducer'
-import { rulesheetToStyleObjects } from './redux/utils'
+import { runTests } from './testFunctions'
+import { rulesheetToStyleObjects } from './redux/parseUtils'
 
 // http://stackoverflow.com/questions/15505225/inject-css-stylesheet-as-string-using-javascript
 (function() {
-    var node = document.createElement('style');
-    document.body.appendChild(node);
+    var node = document.createElement('style')
+    document.body.appendChild(node)
     window.addStyleString = function(str) {
-        node.innerHTML = str;
+        node.innerHTML = str
     }
-}());
+}())
 
 class TextInput extends React.Component {
   constructor(props) {
     super(props);
+    this.customKeyMap = {
+        'Cmd-Enter': (cm) => {
+          this.handleSubmit()
+          runTests(this.props.tests)
+        }
+      }
     this.state = {
       code: '',
     }
@@ -40,7 +47,7 @@ class TextInput extends React.Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    if (e) e.preventDefault()
     let matches = rulesheetToStyleObjects(this.state.code)
     if (matches) {
       // this.props.setRules(matches)
@@ -56,6 +63,7 @@ class TextInput extends React.Component {
       lint: true,
       gutters: ["CodeMirror-lint-markers"],
       autofocus: true,
+      extraKeys: this.customKeyMap,
     }
 
     return(
@@ -64,7 +72,7 @@ class TextInput extends React.Component {
           {/*<textarea name="cssInput" />*/}
           <button type="submit">add rule!</button>
         </form>
-        <CodeMirror style={{ 'text-align': 'left'}}value={this.state.code} onChange={this.handleChange} options={codeMirrorOptions}/>
+        <CodeMirror style={{'text-align': 'left'}}value={this.state.code} onChange={this.handleChange} options={codeMirrorOptions}/>
       </div>
     )
   }
@@ -72,12 +80,13 @@ class TextInput extends React.Component {
 
 const mapState = state => ({
   rules: state.rules,
+  tests: state.tests,
 })
 
 const mapDispatch = dispatch => ({
   setRules: rule => {
     dispatch(setRules(rule))
-  }
+  },
 })
 
 export default connect(mapState, mapDispatch)(TextInput)
