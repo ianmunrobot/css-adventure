@@ -60,8 +60,9 @@ class TextInput extends React.Component {
       mode: 'css',
       keyMap: 'sublime',
       autoCloseBrackets: true,
-      lint: true,
+      lineNumbers: true,
       gutters: ["CodeMirror-lint-markers"],
+      lint: true,
       autofocus: true,
       extraKeys: this.customKeyMap,
     }

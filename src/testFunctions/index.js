@@ -18,14 +18,15 @@ export const isVisible = (elem) => {
     x: elem.getBoundingClientRect().left + elem.offsetWidth / 2,
     y: elem.getBoundingClientRect().top + elem.offsetHeight / 2,
   };
-  console.log('elemcenter', elemCenter);
+  console.log('elemcenter', elemCenter)
   if (elemCenter.x < 0) return false
   if (elemCenter.x > (document.documentElement.clientWidth || window.innerWidth)) return false
   if (elemCenter.y < 0) return false
   if (elemCenter.y > (document.documentElement.clientHeight || window.innerHeight)) return false
   let pointContainer = document.elementFromPoint(elemCenter.x, elemCenter.y)
   do {
-    if (pointContainer === elem) return true;
+    console.log(pointContainer)
+    if (pointContainer === elem) return true
     pointContainer = pointContainer.parentNode
   } while (pointContainer)
   return false
@@ -45,4 +46,10 @@ export const overlap = (elem1, elem2) => {
     rect1.bottom < rect2.top ||
     rect1.left > rect2.right
   );
+}
+
+export const isOpaque = (elem) => {
+  let style = window.getComputedStyle(elem)
+  let opacity = style.getPropertyValue('opacity')
+  return opacity > 0.1
 }
