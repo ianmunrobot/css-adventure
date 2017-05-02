@@ -1,19 +1,25 @@
-import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import React from 'react'
+import { Router, Route, browserHistory } from 'react-router'
+import { connect } from 'react-redux'
+
+import store from './redux'
+import { setChallenge } from './redux/reducers/challengeReducer'
 
 import App from './App';
 import Challenge1 from './Challenges/Challenge1'
 import Challenge2 from './Challenges/Challenge2'
+import Challenges from './Challenges/Challenges'
 
+const setCurrentChallenge = (nextRouterState) => {
+  const challenge = nextRouterState.params.challengeId
+  store.dispatch(setChallenge(challenge))
+}
 
 const Routes = (props) => {
   return (
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <Route path="/challenges">
-          <Route path="1" component={Challenge1} />
-          <Route path="2" component={Challenge2} />
-        </Route>
+        <Route path="/challenges/:challengeId" onEnter={setCurrentChallenge} component={Challenges} />
       </Route>
     </Router>
   )

@@ -1,15 +1,15 @@
 import React from 'react'
-import './App.css'
 import TextInput from './TextInput'
+import ChallengeText from './ChallengeText'
+
+import './App.css'
 
 const App = ({ children }) => {
   return (
-    <div className="App">
-      <div className="App-header">
-        <h2>CSS Adventure</h2>
-      </div>
+    <div className="container-fluid">
       { children }
-      <div className="text-input">
+      <div className="row console">
+        <ChallengeText />
         <TextInput />
       </div>
     </div>

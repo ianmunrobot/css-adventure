@@ -12,10 +12,10 @@ import 'codemirror/addon/edit/closebrackets.js'
 import 'codemirror/addon/lint/lint.css'
 import 'codemirror/addon/lint/lint.js'
 import 'codemirror/addon/lint/css-lint.js'
+import 'codemirror/theme/solarized.css'
 
 import { setRules } from './redux/reducers/ruleReducer'
 import { runTests } from './testFunctions'
-import { rulesheetToStyleObjects } from './redux/parseUtils'
 
 // add a window function to set the innerHTML of a style tag at tn
 // http://stackoverflow.com/questions/15505225/inject-css-stylesheet-as-string-using-javascript
@@ -49,10 +49,7 @@ class TextInput extends React.Component {
 
   handleSubmit = (e) => {
     if (e) e.preventDefault()
-    let matches = rulesheetToStyleObjects(this.state.code)
-    if (matches) {
-      window.addStyleString(this.state.code)
-    }
+    window.addStyleString(this.state.code)
   }
 
   render() {
@@ -61,18 +58,21 @@ class TextInput extends React.Component {
       keyMap: 'sublime',
       autoCloseBrackets: true,
       lineNumbers: true,
-      gutters: ["CodeMirror-lint-markers"],
+      gutters: ['CodeMirror-lint-markers'],
       lint: true,
       autofocus: true,
       extraKeys: this.customKeyMap,
+      theme: 'solarized light'
     }
 
     return(
-      <div className="main-form" onSubmit={this.handleSubmit}>
-        <form>
-          <button type="submit">add rule!</button>
-        </form>
-        <CodeMirror value={this.state.code} onChange={this.handleChange} options={codeMirrorOptions}/>
+      <div className="col-xs-8">
+        <div className="main-form" onSubmit={this.handleSubmit}>
+          <form>
+            {/*<button type="submit">add rule!</button>*/}
+          </form>
+          <CodeMirror value={this.state.code} onChange={this.handleChange} options={codeMirrorOptions}/>
+        </div>
       </div>
     )
   }

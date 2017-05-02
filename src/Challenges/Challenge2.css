@@ -1,17 +1,18 @@
 .wrapper {
   background: linear-gradient( 30deg, #134235, #236487 );
-}
-
-.col-6 {
-  width: 45%;
-  margin: 10px;
-  display: inline-block;
+  height: 55vh;
+  display: block;
 }
 
 .robot {
-  width: 80%;
+  height: 200px;
+  width: 200px;
 }
 
-ul li {
+.inventory-li {
   border: 1px solid white;
+}
+
+.inventory-image {
+
 }

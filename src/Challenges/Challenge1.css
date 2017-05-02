@@ -7,11 +7,10 @@
   position: fixed;
 }
 
-.wrapper {
-  width: 100%;
+/*.wrapper {
   height: 50vh;
   display: block;
-}
+}*/
 
 .box {
   background-color: black;

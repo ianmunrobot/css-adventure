@@ -2,12 +2,10 @@ const initialState = []
 
 export const SET_RULES = 'SET_RULES'
 
-export const setRules = (rules) => {
-  return {
+export const setRules = (rules) => ({
     type: SET_RULES,
     rules,
-  }
-}
+})
 
 export default (state = initialState, action) => {
   switch (action.type) {

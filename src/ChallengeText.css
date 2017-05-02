@@ -1,0 +1,14 @@
+.challenge-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2em;
+  color: #00a500;
+}
+
+.challenge-text-container {
+  margin-top: 20px;
+  padding: 20px 20px;
+  height: 40vh;
+  background-color: #515151;
+  border-radius: 5px 5px 5px 5px;
+  overflow: auto;
+}

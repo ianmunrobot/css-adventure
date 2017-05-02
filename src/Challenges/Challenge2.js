@@ -32,29 +32,29 @@ class Challenge2 extends React.Component {
         .split(' ')
         .map((singleClassName, id) => (<p key={id}>{`.${singleClassName}`}</p>))
 
+    const imageNames = ['Hammer1-64', 'Screwdriver1-64', 'Laptop1-64', 'CopperWire1-64', 'HoverPad1-64']
+
+    const inventory = imageNames.map((path, id) => (
+      <li className="inventory-li" key={id} data-tip data-for="class" onMouseOver={this.handleHover}>
+        <img className="inventory-image" src={`/img/${path}.png`} alt="" onMouseOver={this.handleHover}/>
+      </li>
+    ))
+
     return (
-      <div className="wrapper">
-        <ReactToolTip id='class' aria-haspopup="true">
-          {styles}
-        </ReactToolTip>
-        <div className="col-6">
-          <img className="robot" src="/img/robot-1.png"  data-tip data-for="class"alt="" onMouseOver={this.handleHover}/>
+      <div className="row wrapper">
+        <div className="col-xs-6">
+          <ReactToolTip id='class' aria-haspopup="true">
+            {styles}
+          </ReactToolTip>
+          <img className="robot" src="/img/robot 1-animation.gif" alt="" data-tip data-for="class" onMouseOver={this.handleHover}/>
         </div>
-        <div className="col-6" data-tip data-for="class" onMouseOver={this.handleHover}>
+        <div className="col-xs-6">
           <ul>
-            <li>
-              <img src="/img/Hammer1.png" alt="" />
-            </li>
-            <li>
-              <img src="/img/Screwdriver1.png" alt="" />
-            </li>
+            {inventory}
           </ul>
-        </div>
-        <div>
         </div>
       </div>
     )
-
   }
 
 }
