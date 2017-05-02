@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import './ChallengeText.css'
 
 const ChallengeText = ({challengeText}) => {
-  const text = challengeText.split('\n').map(line => `> ${line}`).join('\n')
+  const text = challengeText.split('\n').map(line => <p className="challenge-text">{`> ${line}`}</p>)
   return (
     <div className="col-xs-4">
       <div className="challenge-text-container">
-        <p className="challenge-text">{text}</p>
+        {text}
       </div>
     </div>
   )
