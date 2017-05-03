@@ -1,4 +1,4 @@
-@keyframes robotHover {
+@keyframes robotRotate {
   100% {
     transform:rotate(-360deg);
   }
@@ -11,10 +11,10 @@
   overflow: auto;
 }
 
-.robot {
+#robot-3 {
   height: 200px;
   width: 200px;
-  animation: robotHover 10s linear infinite;
+  animation: robotRotate 10s linear infinite;
   transform-origin: 100% center;
   position: relative;
   top: 10vh;
@@ -54,4 +54,5 @@
 .hack-img {
   position: absolute;
   right: 0px;
+  transform: rotate(20deg)
 }

@@ -67,7 +67,7 @@ class Challenge3 extends React.Component {
           <ReactToolTip id='class' aria-haspopup="true">
             {styles}
           </ReactToolTip>
-          <img className="robot" id="robot" src="/img/robot 1-animation (no height change).gif" alt="" data-tip data-for="class" onMouseOver={this.handleHover}/>
+          <img className="robot" id="robot-3" src="/img/robot 1-animation (no height change).gif" alt="" data-tip data-for="class" onMouseOver={this.handleHover}/>
           <span className="hackThePlanet" data-tip data-for="class" id="hack1" onMouseOver={this.handleHover}>HACK THE PLANET</span>
           <span className="hackThePlanet2" data-tip data-for="class" id="hack2" onMouseOver={this.handleHover}>HACKERZ 4 EVA</span>
           <p className="hackThePlanet3" data-tip data-for="class" id="hack3" onMouseOver={this.handleHover}>RIGHTEOUS HACKS</p>

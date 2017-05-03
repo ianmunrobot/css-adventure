@@ -49,7 +49,7 @@ class Challenge2 extends React.Component {
           <ReactToolTip id='class' aria-haspopup="true">
             {styles}
           </ReactToolTip>
-          <img className="robot" src="/img/robot 1-animation.gif" alt="" data-tip data-for="class" onMouseOver={this.handleHover}/>
+          <img className="robot" id="robot-2" src="/img/robot 1-animation (no height change).gif" alt="" data-tip data-for="class" onMouseOver={this.handleHover}/>
         </div>
         <div className="col-xs-6">
           <ul>
