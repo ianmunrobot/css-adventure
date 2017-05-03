@@ -1,5 +1,5 @@
 export const SET_CHALLENGE_TEXT = 'SET_CHALLENGE_TEXT'
-export const ADD_CHALLENGE_TEXT = 'SET_CHALLENGE_TEXT'
+export const ADD_CHALLENGE_TEXT = 'ADD_CHALLENGE_TEXT'
 
 export const setChallengeText = (text) => ({
   type: SET_CHALLENGE_TEXT,

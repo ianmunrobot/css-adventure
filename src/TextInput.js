@@ -62,16 +62,16 @@ class TextInput extends React.Component {
       lint: true,
       autofocus: true,
       extraKeys: this.customKeyMap,
-      theme: 'solarized light'
+      theme: 'solarized dark'
     }
 
     return(
       <div className="col-xs-8">
         <div className="main-form" onSubmit={this.handleSubmit}>
-          <form>
-            {/*<button type="submit">add rule!</button>*/}
-          </form>
           <CodeMirror value={this.state.code} onChange={this.handleChange} options={codeMirrorOptions}/>
+          <form className="buttonContainer">
+            <button type="submit" className="submitCSS">add rule</button>
+          </form>
         </div>
       </div>
     )

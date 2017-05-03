@@ -1,3 +1,46 @@
 .main-form {
   padding: 20px 0;
 }
+
+.buttonContainer {
+  position: absolute;
+  bottom: 33px;
+  right: 25px;
+}
+
+.submitCSS {
+  position: relative;
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.9em;
+  color: #2ff12f;
+  box-shadow: 0 6px #4f4f4f;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+	background: #6c6c6c;
+	cursor: pointer;
+	text-transform: uppercase;
+	outline: none;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+}
+
+.submitCSS:hover {
+	box-shadow: 0 3px #4f4f4f;
+	top: 3px;
+}
+
+.submitCSS:active {
+	box-shadow: 0 0 #4f4f4f;
+	top: 6px;
+}
+
+.submitCSS:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+}

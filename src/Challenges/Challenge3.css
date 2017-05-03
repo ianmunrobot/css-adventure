@@ -1,0 +1,57 @@
+@keyframes robotHover {
+  100% {
+    transform:rotate(-360deg);
+  }
+}
+
+.wrapper-3 {
+  background: linear-gradient( 100deg, #134235, #236487 );
+  height: 55vh;
+  display: block;
+  overflow: auto;
+}
+
+.robot {
+  height: 200px;
+  width: 200px;
+  animation: robotHover 10s linear infinite;
+  transform-origin: 100% center;
+  position: relative;
+  top: 10vh;
+  z-index: 1;
+}
+
+.hackThePlanet {
+  font-family: 'Rock Salt', cursive;
+  font-size: 4em;
+  position: absolute;
+  transform: rotate(30deg);
+  top: 200px;
+  right: 100px;
+  color: red;
+}
+
+.hackThePlanet2 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 3.5em;
+  position: absolute;
+  transform: rotate(-40deg);
+  bottom: 0px;
+  left: 0px;
+  color: orange;
+}
+
+.hackThePlanet3 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 4.5em;
+  position: absolute;
+  transform: rotate(-20deg);
+  top: 175px;
+  left: 100px;
+  color: gray;
+}
+
+.hack-img {
+  position: absolute;
+  right: 0px;
+}

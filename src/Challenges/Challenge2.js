@@ -19,7 +19,7 @@ class Challenge2 extends React.Component {
 
   componentDidMount () {
     this.props.setTests(challengeTwoTests)
-    this.props.setChallengeText('... oh no! The hacker has destroyed the formatting of my inventory!\nWe need to set it straight')
+    this.props.setChallengeText('...oh no! The hacker has destroyed the formatting of my inventory!\nWe need to set it straight')
   }
 
   handleHover = (e) => {
@@ -35,7 +35,7 @@ class Challenge2 extends React.Component {
         .map((singleClassName, id) => (<p key={id}>{`.${singleClassName}`}</p>))
 
     // image path names for 'inventory items'
-    const imageNames = ['Hammer1-64', 'Screwdriver1-64', 'Laptop1-64', 'CopperWire1-64', 'HoverPad1-64']
+    const imageNames = ['Hammer1-64', 'Screwdriver1-64', 'Laptop1-64', 'CopperWire1-64', 'HoverPad1-64', 'LightBulb1-64', 'SolderingIron1-64']
 
     const inventory = imageNames.map((path, id) => (
       <li className="inventory-li" key={id} data-tip data-for="class" onMouseOver={this.handleHover}>
