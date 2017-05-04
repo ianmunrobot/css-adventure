@@ -1,9 +1,9 @@
-import Challenge1 from './Challenge1'
-import Challenge2 from './Challenge2'
-import Challenge3 from './Challenge3'
+import challenge1 from './1'
+import challenge2 from './2'
+import challenge3 from './3'
 
 export default {
-  Challenge1,
-  Challenge2,
-  Challenge3,
+  challenge1,
+  challenge2,
+  challenge3,
 }

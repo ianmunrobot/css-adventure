@@ -5,7 +5,9 @@ export const setChallenge = (challenge) => ({
   challenge,
 })
 
-export default (state = 1, action) => {
+const initialState = () => (null)
+
+export default (state = initialState, action) => {
   switch(action.type) {
     case SET_CURRENT_CHALLENGE:
       return action.challenge
