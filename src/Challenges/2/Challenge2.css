@@ -17,3 +17,19 @@
 .inventory-image {
 
 }
+
+@keyframes robotHover {
+  50% {
+    transform: translate(0, 40px);
+  }
+  100% {
+    transform: translate(0, 0)
+  }
+}
+
+#robot-2 {
+  animation: robotHover 5s ease-in-out infinite;
+  position: relative;
+  top: 10vh;
+  z-index: 1;
+}
