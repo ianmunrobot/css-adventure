@@ -15,18 +15,8 @@ import 'codemirror/theme/solarized.css'
 
 import './TextInput.css'
 
-import { setRules } from './redux/reducers/ruleReducer'
+import { setStyles } from './redux/reducers/styleReducer'
 import { runTests } from './testFunctions'
-
-// add a window function to set the innerHTML of a style tag at tn
-// http://stackoverflow.com/questions/15505225/inject-css-stylesheet-as-string-using-javascript
-(function() {
-    var node = document.createElement('style')
-    document.body.appendChild(node)
-    window.addStyleString = function(str) {
-        node.innerHTML = str
-    }
-}())
 
 class TextInput extends React.Component {
   constructor(props) {
@@ -50,7 +40,7 @@ class TextInput extends React.Component {
 
   handleSubmit = (e) => {
     if (e) e.preventDefault()
-    window.addStyleString(this.state.code)
+    this.props.setStyles(this.state.code)
   }
 
   render() {
@@ -85,8 +75,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  setRules: rule => {
-    dispatch(setRules(rule))
+  setStyles: rule => {
+    dispatch(setStyles(rule))
   },
 })
 
