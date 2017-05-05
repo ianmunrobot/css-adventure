@@ -44,3 +44,7 @@
 	-moz-transition: all 0.1s;
 	transition: all 0.1s;
 }
+
+.CodeMirror {
+	height: 40vh;
+}

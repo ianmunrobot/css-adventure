@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import './TextInput.css'
 
 // CodeMirror code input and rules
 import CodeMirror from 'react-codemirror'
@@ -13,6 +12,8 @@ import 'codemirror/addon/lint/lint.css'
 import 'codemirror/addon/lint/lint.js'
 import 'codemirror/addon/lint/css-lint.js'
 import 'codemirror/theme/solarized.css'
+
+import './TextInput.css'
 
 import { setRules } from './redux/reducers/ruleReducer'
 import { runTests } from './testFunctions'
