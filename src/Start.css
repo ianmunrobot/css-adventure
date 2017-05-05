@@ -1,7 +1,7 @@
 .startBg {
   background-image: url("/img/CircuitBG1.png");
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 @keyframes robotHoverStart {
@@ -20,18 +20,20 @@
   bottom: 50px;
 }
 
-.alertPanel {
+.alerts {
   margin: 0 auto;
-  position: absolute;
-  width: 80vw;
-  top: 20vh;
-  left: 10vw;
+  padding: 60px 100px;
+}
+
+.alertPanel {
   background-color: rgba(12, 12, 12, 0.4);
+  margin: 0 auto;
+  padding: 5px 5px;
 }
 
 .innerPanel {
-  margin: 10px 10px;
   background-color: rgba(12, 12, 12, 0.9);
+  margin: 10px 10px;
   padding: 20px 20px;
 }
 
@@ -53,27 +55,43 @@
 }
 
 .namePanel {
-  position: absolute;
-  width: 40vw;
-  left: 30vw;
-  top: 50vh;
-  background-color: rgba(12, 12, 12, 0.4)
+  background-color: rgba(12, 12, 12, 0.4);
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.nameText {
+  min-width: 400px;
+  max-width: 500px;
 }
 
 .nameEntry {
+  display: block;
   font-family: 'Press Start 2P', cursive;
   color: white;
   font-size: 1.5em;
   text-align: center;
-  margin: 10px calc(5vw - 30px);
+  margin: 0 auto;
   padding: 20px 20px;
   border: none;
-  width: 30vw;
   background-color: rgba(1, 1, 1, 0.8);
   caret-color: yellow;
-
+  width: 80%;
+  max-width: 500px;
 }
 
 .nameEntry:focus {
   outline: solid 2px rgba(244, 244, 66, 0.7);
+}
+
+.nameButton {
+  background-color: #777777;
+  display: block;
+  margin: 20px auto;
+}
+
+.nameButton:focus {
+  outline: none;
 }

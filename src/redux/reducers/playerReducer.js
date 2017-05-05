@@ -1,11 +1,11 @@
 export const SET_PLAYER_NAME = 'SET_PLAYER_NAME'
 
 export const setPlayerName = (name) => ({
-  action: SET_PLAYER_NAME,
+  type: SET_PLAYER_NAME,
   name
 })
 
-const initialState = {}
+const initialState = ''
 
 export default (state = initialState, action) => {
   switch (action.type) {
