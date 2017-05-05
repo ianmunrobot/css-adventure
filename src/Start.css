@@ -1,0 +1,97 @@
+.startBg {
+  background-image: url("/img/CircuitBG1.png");
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+@keyframes robotHoverStart {
+  50% {
+    transform: translate(0, 80px);
+  }
+  100% {
+    transform: translate(0, 0)
+  }
+}
+
+.robot-start {
+  animation: robotHoverStart 3s ease-in-out infinite;
+  position: absolute;
+  z-index: 1;
+  bottom: 50px;
+}
+
+.alerts {
+  margin: 0 auto;
+  padding: 60px 100px;
+}
+
+.alertPanel {
+  background-color: rgba(12, 12, 12, 0.4);
+  margin: 0 auto;
+  padding: 5px 5px;
+}
+
+.innerPanel {
+  background-color: rgba(12, 12, 12, 0.9);
+  margin: 10px 10px;
+  padding: 20px 20px;
+}
+
+.introAlert {
+  font-size: 3em;
+  font-family: 'Press Start 2P', cursive;
+  color: #eded00;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 10px;
+}
+
+.introText {
+  font-size: 1.2em;
+  font-family: 'Press Start 2P', cursive;
+  color: #eded00;
+  text-align: center;
+  padding: 20px 40px 10px;
+}
+
+.namePanel {
+  background-color: rgba(12, 12, 12, 0.4);
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.nameText {
+  min-width: 400px;
+  max-width: 500px;
+}
+
+.nameEntry {
+  display: block;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px 20px;
+  border: none;
+  background-color: rgba(1, 1, 1, 0.8);
+  caret-color: yellow;
+  width: 80%;
+  max-width: 500px;
+}
+
+.nameEntry:focus {
+  outline: solid 2px rgba(244, 244, 66, 0.7);
+}
+
+.nameButton {
+  background-color: #777777;
+  display: block;
+  margin: 20px auto;
+}
+
+.nameButton:focus {
+  outline: none;
+}

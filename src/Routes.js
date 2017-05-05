@@ -6,6 +6,7 @@ import { setChallenge } from './redux/reducers/challengeReducer'
 import { setChallengeText } from './redux/reducers/challengeTextReducer'
 import { setTests } from './redux/reducers/testReducer'
 
+import Start from './Start'
 import App from './App'
 import Challenges from './Challenges/SingleChallenge'
 import allChallenges from './Challenges'
@@ -21,8 +22,9 @@ const setCurrentChallenge = (nextRouterState) => {
 const Routes = (props) => {
   return (
     <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <Route path="/challenges/:challengeId" onEnter={setCurrentChallenge} component={Challenges} />
+      <Route path="/" component={Start} />
+      <Route path='/challenges' component={App}>
+        <Route path=":challengeId" onEnter={setCurrentChallenge} component={Challenges} />
       </Route>
     </Router>
   )
