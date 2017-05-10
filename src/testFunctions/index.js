@@ -69,5 +69,36 @@ export const overlap = (elem1, elem2) => {
 export const isOpaque = (elem) => {
   let style = window.getComputedStyle(elem)
   let opacity = style.getPropertyValue('opacity')
-  return opacity > 0
+  return +opacity > 0
+}
+
+/**
+ *
+ * @param {Element} element
+ * @return {Number} angle
+ */
+export const getElementRotationAngle = element => {
+  const style = window.getComputedStyle(element)
+  const tr = style.getPropertyValue('-webkit-transform') ||
+          style.getPropertyValue('-moz-transform') ||
+          style.getPropertyValue('-ms-transform') ||
+          style.getPropertyValue('-o-transform') ||
+          style.getPropertyValue('transform') ||
+          'none'
+
+  // if no transform property, return 0º angle
+  if (tr === 'none') {
+    return 0
+  }
+
+  // rotation matrix - http://en.wikipedia.org/wiki/Rotation_matrix
+
+  var values = tr.split('(')[1]
+      values = values.split(')')[0]
+      values = values.split(',')
+  const a = values[0]
+  const b = values[1]
+  const angle = Math.round(Math.atan2(+b, +a) * (180/Math.PI))
+  console.log(angle)
+  return angle
 }

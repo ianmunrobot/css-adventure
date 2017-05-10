@@ -5,7 +5,7 @@ import './Challenge3.css'
 
 const Challenge3 = (props) => {
   return (
-    <div className="row wrapper-3">
+    <div className="row challengeWrapper wrapper-3">
       <div className="col-xs-12">
         <img className="robot" id="robot-3" src="/img/robot 1-animation (no height change).gif" alt="" data-tip data-for="class" onMouseOver={props.handleHover}/>
         <span className="hackThePlanet" data-tip data-for="class" id="hack1" onMouseOver={props.handleHover}>HACK THE PLANET</span>

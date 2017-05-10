@@ -3,3 +3,9 @@
   height: 45vh;
   display: block;
 }
+
+.challengeWrapper {
+  height: 55vh;
+  display: block;
+  overflow: auto;
+}
