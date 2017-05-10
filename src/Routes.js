@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, IndexRedirect } from 'react-router'
 
 import store from './redux'
 import { setChallenge } from './redux/reducers/challengeReducer'
@@ -26,6 +26,7 @@ const Routes = (props) => {
       <Route path='/challenges' component={App}>
         <Route path=":challengeId" onEnter={setCurrentChallenge} component={Challenges} />
       </Route>
+      <Route path="*" onEnter={() => browserHistory.push('/')} />
     </Router>
   )
 }
