@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import './ChallengeText.css'
 
 const ChallengeText = ({challengeText}) => {
-  const text = challengeText.split('\n').map((line, index)=> <p key={index} className="challenge-text">{`> ${line}`}</p>)
+  const text = challengeText.split('\n').map((line, index)=> <p key={index} className="challenge-text">{`⇨ ${line}`}</p>)
   return (
     <div className="col-xs-4">
       <div className="challenge-text-container">

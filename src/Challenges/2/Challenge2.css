@@ -1,8 +1,5 @@
 .wrapper {
   background: linear-gradient( 30deg, #134235, #236487 );
-  height: 55vh;
-  display: block;
-  overflow: auto;
 }
 
 .robot {

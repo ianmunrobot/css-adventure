@@ -6,9 +6,6 @@
 
 .wrapper-3 {
   background: linear-gradient( 100deg, #134235, #236487 );
-  height: 55vh;
-  display: block;
-  overflow: auto;
 }
 
 #robot-3 {

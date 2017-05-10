@@ -15,7 +15,7 @@ const Challenge2 = (props) => {
   ))
 
   return (
-    <div className="row wrapper">
+    <div className="row wrapper challengeWrapper">
       <div className="col-xs-6">
         <img className="robot" id="robot-2" src="/img/robot 1-animation (no height change).gif" alt="" data-tip data-for="class" onMouseOver={props.handleHover}/>
       </div>
