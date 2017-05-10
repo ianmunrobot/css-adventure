@@ -5,16 +5,12 @@ import { addStyle } from '../../redux/reducers/styleReducer'
 
 
 const tests = () => {
-  const lightbult = document.getElementById('lightbulb')
   const upperLeft = document.getElementById('pipe-top-left')
-  const upperMiddle = document.getElementById('pipe-top-left')
   const middleLeft = document.getElementById('pipe-middle-left')
-  const middleMiddle = document.getElementById('pipe-middle-middle')
   const middleRight = document.getElementById('pipe-middle-right')
   const bottomLeft = document.getElementById('pipe-bottom-left')
   const bottomMiddle = document.getElementById('pipe-bottom-middle')
   const bottomRight = document.getElementById('pipe-bottom-right')
-  const upperLeftRotation = getElementRotationAngle(upperMiddle)
 
   let newProps = {
       lightbulb: false,
@@ -26,9 +22,12 @@ const tests = () => {
       bottomMiddle: false,
       bottomRight: false,
     }
+  // hex values used to progressively update the background darkness gradient as the challenge is completed
   const progressStyles = ['222222', '333333', '444444', '555555', '666666', '777777']
   let progressIndex = 0
 
+  // trace the correct path, and build object of correctly passing pipes
+  const upperLeftRotation = getElementRotationAngle(upperLeft)
   if (upperLeftRotation === 180 || upperLeftRotation === -180) {
     newProps.topLeft = true
     progressIndex++

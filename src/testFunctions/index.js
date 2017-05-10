@@ -92,13 +92,12 @@ export const getElementRotationAngle = element => {
   }
 
   // rotation matrix - http://en.wikipedia.org/wiki/Rotation_matrix
-
+  // extract the first two rotation matrix values
   var values = tr.split('(')[1]
       values = values.split(')')[0]
       values = values.split(',')
   const a = values[0]
   const b = values[1]
-  const angle = Math.round(Math.atan2(+b, +a) * (180/Math.PI))
-  console.log(angle)
+  const angle = Math.round(Math.atan2(+b, +a) * (180 / Math.PI))
   return angle
 }
