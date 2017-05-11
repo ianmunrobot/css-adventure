@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Tooltip from '../../Tooltip'
 
 import './Challenge.css'
 
@@ -26,6 +27,7 @@ const InventoryBoxes = (props) => {
 
   return (
     <div className="row wrapper challengeWrapper">
+      <Tooltip classNamesToDisplay={props.classNames}/>
       <div className="col-xs-6">
         <img className="robot" id="robot-2" src={robot} alt="" data-tip data-for="class" onMouseOver={props.handleHover}/>
       </div>

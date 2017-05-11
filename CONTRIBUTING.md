@@ -17,4 +17,12 @@ Clone/create a branch and create a new folder in the `src/Challenges` folder. Th
 
 You will probably also want to include a `Challenge.css` file that can be required by the main `Challenge` component with challenge-specific styling.
 
+Your `Component` should be wrapped in a `div` with `className="row challengeWrapper"` and whatever other custom classes you may want to define for bg-color, etc. Be sure to import the `Tooltip` component and nest it in inside your wrapper:
+```js
+// smart component:
+<Tooltip classNamesToDisplay={this.props.classNames}/>
+// presentational component:
+<Tooltip classNamesToDisplay={props.classNames}/>
+```
+
 Submit a PR! Open an issue if you want to propose new challenges but can't work on them yourself. Or open an issue to let me know if you're working on something.

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Tooltip from '../../Tooltip'
 
 import { setChallengeProps } from '../../redux/reducers/challengeSpecificProps'
 
@@ -36,6 +37,7 @@ class PipeDream extends React.Component {
     const images = this.props.challengeSpecificProps
     return (
       <div className="row challengeWrapper wrapper-4">
+        <Tooltip classNamesToDisplay={this.props.classNames}/>
         <div className="col-xs-4">
         <img className="robot" id="robot-2" src={robot} alt="" data-tip data-for="class" onMouseOver={handleHover}/>
         </div>
@@ -56,9 +58,9 @@ class PipeDream extends React.Component {
               </tr>
               <tr>
                 <td></td>
-                <td><img id="pipe-bottom-left" src={images.bottomLeft ? flashHorizontal : darkHorizontal } alt="" className="bottom-left" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-bottom-left" src={images.bottomLeft ? lightLhElbow : darkLhElbow } alt="" className="bottom-left" data-tip data-for="class" onMouseOver={handleHover} /></td>
                 <td><img id="pipe-bottom-middle" src={images.bottomMiddle ? flashVertical : darkVertical } alt="" className="bottom-middle" data-tip data-for="class" onMouseOver={handleHover} /></td>
-                <td><img id="pipe-bottom-right" src={images.bottomRight ? flashHorizontal : darkHorizontal } alt="" className="bottom-right" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-bottom-right" src={images.bottomRight ? lightLhElbow : darkLhElbow } alt="" className="bottom-right" data-tip data-for="class" onMouseOver={handleHover} /></td>
               </tr>
             </tbody>
           </table>
@@ -69,8 +71,9 @@ class PipeDream extends React.Component {
 
 }
 
-const mapState = ({ challengeSpecificProps }) => ({
-  challengeSpecificProps
+const mapState = ({ challengeSpecificProps }, { handleHover } ) => ({
+  challengeSpecificProps,
+  handleHover,
 })
 
 const mapDispatch = dispatch => ({
