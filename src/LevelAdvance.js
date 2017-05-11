@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
+import resetDefaults from './redux/resetDefaults'
 
 import './LevelAdvance.css'
 
 const LevelAdvance = ({challengeNumber, player}) => {
   const handleSubmit = e => {
     e.preventDefault()
+    resetDefaults()
     browserHistory.push(`/challenges/${challengeNumber + 1}`)
   }
 

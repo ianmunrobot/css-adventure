@@ -32,6 +32,15 @@ class TextInput extends React.Component {
     }
   }
 
+  // handle clean local state when global styles reducer is reset by switching challenges
+  componentWillReceiveProps (newProps) {
+    if (newProps.styles === '') {
+      this.setState({
+        code: '',
+      })
+    }
+  }
+
   handleChange = (code) => {
     this.setState({
       code
@@ -74,8 +83,8 @@ class TextInput extends React.Component {
 }
 
 const mapState = state => ({
-  rules: state.rules,
   tests: state.tests,
+  styles: state.styles,
 })
 
 const mapDispatch = dispatch => ({
