@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 import { setChallengeProps } from '../../redux/reducers/challengeSpecificProps'
 
-import './Challenge4.css'
+import './Challenge.css'
 
-class Challenge4 extends React.Component {
+class PipeDream extends React.Component {
 
   componentDidMount() {
     this.props.setChallengeProps({
@@ -66,4 +66,4 @@ const mapDispatch = dispatch => ({
   setChallengeProps: props => dispatch(setChallengeProps(props))
 })
 
-export default connect(mapState, mapDispatch)(Challenge4)
+export default connect(mapState, mapDispatch)(PipeDream)

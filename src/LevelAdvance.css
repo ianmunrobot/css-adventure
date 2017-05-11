@@ -1,0 +1,39 @@
+.full-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.level-advance {
+  display: block;
+  margin: 0 auto;
+  max-width: 60%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 20px;
+}
+
+.introAlert {
+  font-size: 2em;
+  font-family: 'Press Start 2P', cursive;
+  color: #eded00;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 10px;
+}
+
+.levelButton {
+  background-color: #777777;
+  display: block;
+  margin: 20px auto;
+  max-width: 60%;
+}
+
+.levelButton:focus {
+  outline: none;
+}

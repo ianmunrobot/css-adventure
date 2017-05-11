@@ -5,12 +5,14 @@ export const setPlayerName = (name) => ({
   name
 })
 
-const initialState = ''
+const initialState = {}
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_PLAYER_NAME:
-      return action.name
+      return Object.assign(state, {
+        name: action.name,
+      })
     default:
       return state
   }

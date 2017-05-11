@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import './Challenge2.css'
+import './Challenge.css'
 
-const Challenge2 = (props) => {
+const InventoryBoxes = (props) => {
 
   // image path names for 'inventory items'
   const imageNames = ['Hammer1-64', 'Screwdriver1-64', 'Laptop1-64', 'CopperWire1-64', 'HoverPad1-64', 'LightBulb1-64', 'SolderingIron1-64']
@@ -36,4 +36,4 @@ const mapDispatch = (dispatch) => ({
 
 })
 
-export default connect(mapState, mapDispatch)(Challenge2)
+export default connect(mapState, mapDispatch)(InventoryBoxes)
