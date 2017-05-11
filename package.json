@@ -5,6 +5,7 @@
   "homepage": "https://ianmunrobot.github.io/css-adventure",
   "dependencies": {
     "codemirror": "^5.25.2",
+    "csslint": "^1.0.5",
     "react": "^15.5.4",
     "react-codemirror": "^0.3.0",
     "react-dom": "^15.5.4",
