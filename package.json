@@ -2,7 +2,7 @@
   "name": "css-adventure",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ianmunrobot.github.io/css-adventure",
+  "homepage": "https://ianmunrobot.github.io/css-adventure/",
   "dependencies": {
     "codemirror": "^5.25.2",
     "csslint": "^1.0.5",
