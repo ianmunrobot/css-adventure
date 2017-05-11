@@ -6,13 +6,14 @@ import { setPlayerName } from './redux/reducers/playerReducer'
 
 import './Start.css'
 
-const handleSubmit = e => {
-  e.preventDefault()
-  setPlayerName(e.target.playerName.value)
-  browserHistory.push('/challenges/2')
-}
+
 
 const Start = ({ setPlayerName }) => {
+  const handleSubmit = e => {
+    setPlayerName(e.target.playerName.value)
+    browserHistory.push('/challenges/1')
+  }
+
   return (
     <div className="startBg" >
       <div>
@@ -45,6 +46,8 @@ const Start = ({ setPlayerName }) => {
   )
 }
 
-const mapDispatch = { setPlayerName }
+const mapDispatch = dispatch => ({
+  setPlayerName: name => dispatch(setPlayerName(name))
+})
 
 export default connect(null, mapDispatch)(Start)

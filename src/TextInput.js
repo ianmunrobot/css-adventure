@@ -17,6 +17,7 @@ import './TextInput.css'
 
 import { setStyles } from './redux/reducers/styleReducer'
 import { runTests } from './testFunctions'
+import { setChallengeStatus } from './redux/reducers/challengeStatusReducer'
 
 class TextInput extends React.Component {
   constructor(props) {
@@ -24,7 +25,6 @@ class TextInput extends React.Component {
     this.customKeyMap = {
         'Cmd-Enter': (cm) => {
           this.handleSubmit()
-          runTests(this.props.tests)
         },
       }
     this.state = {
@@ -41,6 +41,10 @@ class TextInput extends React.Component {
   handleSubmit = (e) => {
     if (e) e.preventDefault()
     this.props.setStyles(this.state.code)
+    let result = runTests(this.props.tests)
+    if (result) {
+      this.props.completeChallenge()
+    }
   }
 
   render() {
@@ -78,6 +82,9 @@ const mapDispatch = dispatch => ({
   setStyles: rule => {
     dispatch(setStyles(rule))
   },
+  completeChallenge: () => {
+    dispatch(setChallengeStatus('complete'))
+  }
 })
 
 export default connect(mapState, mapDispatch)(TextInput)

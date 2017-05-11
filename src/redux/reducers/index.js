@@ -5,6 +5,8 @@ import challengeText from './challengeTextReducer'
 import challenge from './challengeReducer'
 import player from './playerReducer'
 import challengeSpecificProps from './challengeSpecificProps'
+import challengeNumber from './challengeNumberReducer'
+import challengeStatus from './challengeStatusReducer'
 
 export default combineReducers({
   styles,
@@ -12,5 +14,7 @@ export default combineReducers({
   challenge,
   challengeText,
   challengeSpecificProps,
+  challengeNumber,
+  challengeStatus,
   player,
 })
