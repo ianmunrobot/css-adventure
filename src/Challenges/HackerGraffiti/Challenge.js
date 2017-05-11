@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import './Challenge3.css'
+import './Challenge.css'
 
 const Challenge3 = (props) => {
   return (

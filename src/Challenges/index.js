@@ -1,11 +1,10 @@
-import challenge1 from './1'
-import challenge2 from './2'
-import challenge3 from './3'
-import challenge4 from './4'
+import InventoryBoxes from './InventoryBoxes'
+import HackerGraffiti from './HackerGraffiti'
+import PipeDream from './PipeDream'
 
-export default {
-  challenge1,
-  challenge2,
-  challenge3,
-  challenge4,
-}
+// The order of this exported array will determine the overall challenge order
+export default [
+  HackerGraffiti,
+  InventoryBoxes,
+  PipeDream,
+]
