@@ -5,6 +5,7 @@ import TextInput from './TextInput'
 import ChallengeText from './ChallengeText'
 import StyleNode from './StyleNode'
 import LevelAdvance from './LevelAdvance'
+import Ending from './Ending'
 
 import './App.css'
 
@@ -12,6 +13,7 @@ const App = ({ children, challengeStatus }) => {
   return (
     <div className="container-fluid">
       { challengeStatus === 'complete' ? <LevelAdvance /> : null }
+      { challengeStatus === 'all-complete' ? <Ending /> : null }
       { children }
       <div className="row console">
         <ChallengeText />

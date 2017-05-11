@@ -6,6 +6,7 @@ import { setChallenge } from './redux/reducers/challengeReducer'
 import { setChallengeText } from './redux/reducers/challengeTextReducer'
 import { setTests } from './redux/reducers/testReducer'
 import { setChallengeNumber } from './redux/reducers/challengeNumberReducer'
+import { setChallengeStatus } from './redux/reducers/challengeStatusReducer'
 
 import Start from './Start'
 import App from './App'
@@ -13,12 +14,17 @@ import Challenges from './Challenges/SingleChallenge'
 import allChallenges from './Challenges'
 
 const setCurrentChallenge = (nextRouterState) => {
-  const challengeId = nextRouterState.params.challengeId
-  const currentChallengeData = allChallenges[challengeId - 1]
-  store.dispatch(setChallenge(currentChallengeData.challengeComponent))
-  store.dispatch(setChallengeText(currentChallengeData.prompt))
-  store.dispatch(setTests(currentChallengeData.tests))
-  store.dispatch(setChallengeNumber(+challengeId))
+  const challengeId = +nextRouterState.params.challengeId
+
+  if (challengeId > allChallenges.length) {
+    store.dispatch(setChallengeStatus('all-complete'))
+  } else {
+    const currentChallengeData = allChallenges[challengeId - 1]
+    store.dispatch(setChallenge(currentChallengeData.challengeComponent))
+    store.dispatch(setChallengeText(currentChallengeData.prompt))
+    store.dispatch(setTests(currentChallengeData.tests))
+    store.dispatch(setChallengeNumber(challengeId))
+  }
 }
 
 const Routes = (props) => {
