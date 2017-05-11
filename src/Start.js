@@ -5,19 +5,20 @@ import { browserHistory } from 'react-router'
 import { setPlayerName } from './redux/reducers/playerReducer'
 
 import './Start.css'
-
+import robot from './img/robot1-animation(no-height-change).gif'
 
 
 const Start = ({ setPlayerName }) => {
   const handleSubmit = e => {
+    e.preventDefault()
     setPlayerName(e.target.playerName.value)
-    browserHistory.push('/challenges/1')
+    browserHistory.push('/css-adventure/challenges/1')
   }
 
   return (
     <div className="startBg" >
       <div>
-        <img className="robot-start" id="robot-start" src="/img/robot 1-animation (no height change).gif" alt=""/>
+        <img className="robot-start" id="robot-start" src={ robot } alt=""/>
       </div>
       <div className="alerts">
         <div className="alertPanel">

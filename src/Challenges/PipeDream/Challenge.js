@@ -5,6 +5,17 @@ import { setChallengeProps } from '../../redux/reducers/challengeSpecificProps'
 
 import './Challenge.css'
 
+import robot from '../../img/robot1-animation(no-height-change).gif'
+import battery from '../../img/PowerBattery-128.png'
+import lightbulbOn from '../../img/LightBulb1(on)-128.png'
+import lightbulbOff from '../../img/LightBulb1(off)-128.png'
+import lightLhElbow from '../../img/PowerConduit1(light-lhElbow)-128.gif'
+import darkLhElbow from '../../img/PowerConduit1(dark-lhElbow)-128.png'
+import darkVertical from '../../img/PowerConduit1(dark-vertical)-128.png'
+import flashVertical from '../../img/PowerConduit1(flash-vertical)-128.gif'
+import darkHorizontal from '../../img/PowerConduit1(dark-horizontal)-128.png'
+import flashHorizontal from '../../img/PowerConduit1(flash-horizontal)-128.gif'
+
 class PipeDream extends React.Component {
 
   componentDidMount() {
@@ -26,28 +37,28 @@ class PipeDream extends React.Component {
     return (
       <div className="row challengeWrapper wrapper-4">
         <div className="col-xs-4">
-        <img className="robot" id="robot-2" src="/img/robot 1-animation (no height change).gif" alt="" data-tip data-for="class" onMouseOver={handleHover}/>
+        <img className="robot" id="robot-2" src={robot} alt="" data-tip data-for="class" onMouseOver={handleHover}/>
         </div>
         <div className="col-xs-8">
           <table>
             <tbody>
               <tr>
-                <td id="battery"><img src="/img/PowerBattery-128.png" alt="" className="battery" data-tip data-for="class" onMouseOver={handleHover} /></td>
-                <td><img id="pipe-top-left" src={images.topLeft ?  `/img/PowerConduit1(light-lhElbow)-128.gif`: `/img/PowerConduit1(dark-lhElbow)-128.png`} alt="" className="top-left" data-tip data-for="class" onMouseOver={handleHover} /></td>
-                <td><img id="pipe-top-middle" src="/img/PowerConduit1(dark-vertical)-128.png" alt="" className="top-middle" data-tip data-for="class" onMouseOver={handleHover} /></td>
-                <td><img src={`/img/LightBulb1(${images.lightbulb ? 'on' : 'off'})-128.png`} alt="" className="lightbulb" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td id="battery"><img src={ battery } alt="" className="battery" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-top-left" src={ images.topLeft ? lightLhElbow : darkLhElbow } alt="" className="top-left" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-top-middle" src={ darkVertical } alt="" className="top-middle" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img src={images.lightbulb ? lightbulbOn : lightbulbOff } alt="" className="lightbulb" data-tip data-for="class" onMouseOver={handleHover} /></td>
               </tr>
               <tr>
                 <td></td>
-                <td><img id="pipe-middle-left" src={images.middleLeft ?  `/img/PowerConduit1(flash-horizontal)-128.gif`: `/img/PowerConduit1(dark-horizontal)-128.png`} alt="" className="middle-left" data-tip data-for="class" onMouseOver={handleHover} /></td>
-                <td><img id="pipe-middle-middle" src="/img/PowerConduit1(dark-lhElbow)-128.png" alt="" className="middle-middle" data-tip data-for="class" onMouseOver={handleHover} /></td>
-                <td><img id="pipe-middle-right" src={images.middleRight ?  `/img/PowerConduit1(flash-horizontal)-128.gif`: `/img/PowerConduit1(dark-horizontal)-128.png`} alt="" className="middle-right" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-middle-left" src={ images.middleLeft ? flashHorizontal : darkHorizontal } alt="" className="middle-left" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-middle-middle" src={ darkLhElbow } alt="" className="middle-middle" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-middle-right" src={images.middleRight ? flashHorizontal : darkHorizontal } alt="" className="middle-right" data-tip data-for="class" onMouseOver={handleHover} /></td>
               </tr>
               <tr>
                 <td></td>
-                <td><img id="pipe-bottom-left" src={images.bottomLeft ?  `/img/PowerConduit1(light-lhElbow)-128.gif`: `/img/PowerConduit1(dark-lhElbow)-128.png`} alt="" className="bottom-left" data-tip data-for="class" onMouseOver={handleHover} /></td>
-                <td><img id="pipe-bottom-middle" src={images.bottomMiddle ?  `/img/PowerConduit1(flash-vertical)-128.gif`: `/img/PowerConduit1(dark-vertical)-128.png`} alt="" className="bottom-middle" data-tip data-for="class" onMouseOver={handleHover} /></td>
-                <td><img id="pipe-bottom-right" src={images.bottomRight ?  `/img/PowerConduit1(light-lhElbow)-128.gif`: `/img/PowerConduit1(dark-lhElbow)-128.png`} alt="" className="bottom-right" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-bottom-left" src={images.bottomLeft ? flashHorizontal : darkHorizontal } alt="" className="bottom-left" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-bottom-middle" src={images.bottomMiddle ? flashVertical : darkVertical } alt="" className="bottom-middle" data-tip data-for="class" onMouseOver={handleHover} /></td>
+                <td><img id="pipe-bottom-right" src={images.bottomRight ? flashHorizontal : darkHorizontal } alt="" className="bottom-right" data-tip data-for="class" onMouseOver={handleHover} /></td>
               </tr>
             </tbody>
           </table>

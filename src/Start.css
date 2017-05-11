@@ -1,5 +1,5 @@
 .startBg {
-  background-image: url("/img/CircuitBG1.png");
+  background-image: url(./img/CircuitBG1.png);
   min-height: 100vh;
   min-width: 100vw;
 }

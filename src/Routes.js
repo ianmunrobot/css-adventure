@@ -30,11 +30,11 @@ const setCurrentChallenge = (nextRouterState) => {
 const Routes = (props) => {
   return (
     <Router history={browserHistory}>
-      <Route path="/" component={Start} />
-      <Route path='/challenges' component={App}>
+      <Route path="/css-adventure" component={Start} />
+      <Route path='/css-adventure/challenges' component={App}>
         <Route path=":challengeId" onEnter={setCurrentChallenge} component={Challenges} />
       </Route>
-      <Route path="*" onEnter={() => browserHistory.push('/')} />
+      <Route path="*" onEnter={() => browserHistory.push('/css-adventure')} />
     </Router>
   )
 }

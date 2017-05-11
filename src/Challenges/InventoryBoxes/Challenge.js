@@ -3,21 +3,31 @@ import { connect } from 'react-redux'
 
 import './Challenge.css'
 
+import hammer from '../../img/Hammer1-64.png'
+import screwdriver from '../../img/Screwdriver1-64.png'
+import laptop from '../../img/Laptop1-64.png'
+import copperWire from '../../img/CopperWire1-64.png'
+import hoverPad from '../../img/HoverPad1-64.png'
+import lightBulb from '../../img/LightBulb1-64.png'
+import solderingIron from '../../img/SolderingIron1-64.png'
+
+import robot from '../../img/robot1-animation(no-height-change).gif'
+
 const InventoryBoxes = (props) => {
 
   // image path names for 'inventory items'
-  const imageNames = ['Hammer1-64', 'Screwdriver1-64', 'Laptop1-64', 'CopperWire1-64', 'HoverPad1-64', 'LightBulb1-64', 'SolderingIron1-64']
+  const imageNames = [hammer, screwdriver, laptop, copperWire, hoverPad, lightBulb, solderingIron]
 
-  const inventory = imageNames.map((path, id) => (
+  const inventory = imageNames.map((image, id) => (
     <li className="inventory-li" key={id} data-tip data-for="class" onMouseOver={props.handleHover}>
-      <img className="inventory-image" src={`/img/${path}.png`} alt="" onMouseOver={props.handleHover}/>
+      <img className="inventory-image" src={image} alt="" onMouseOver={props.handleHover}/>
     </li>
   ))
 
   return (
     <div className="row wrapper challengeWrapper">
       <div className="col-xs-6">
-        <img className="robot" id="robot-2" src="/img/robot 1-animation (no height change).gif" alt="" data-tip data-for="class" onMouseOver={props.handleHover}/>
+        <img className="robot" id="robot-2" src={robot} alt="" data-tip data-for="class" onMouseOver={props.handleHover}/>
       </div>
       <div className="col-xs-6">
         <ul>
