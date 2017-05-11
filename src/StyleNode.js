@@ -5,12 +5,12 @@ import { connect } from 'react-redux'
 const StyleNode = ({styles}) => {
   return (
     <style>
-      {styles}
+      { styles }
     </style>
   )
 }
 
-const mapState = ({styles}) => ({
+const mapState = ({ styles }) => ({
   styles
 })
 
