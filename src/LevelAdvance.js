@@ -9,7 +9,7 @@ const LevelAdvance = ({challengeNumber, player}) => {
   const handleSubmit = e => {
     e.preventDefault()
     resetDefaults()
-    browserHistory.push(`/challenges/${challengeNumber + 1}`)
+    browserHistory.push(`/css-adventure/challenges/${challengeNumber + 1}`)
   }
 
   return (
