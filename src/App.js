@@ -6,14 +6,19 @@ import ChallengeText from './ChallengeText'
 import StyleNode from './StyleNode'
 import LevelAdvance from './LevelAdvance'
 import Ending from './Ending'
+import Tutorial from './Tutorial'
+
+import { setChallengeStatus } from './redux/reducers/challengeStatusReducer'
 
 import './App.css'
 
-const App = ({ children, challengeStatus }) => {
+const App = ({ children, challengeStatus, openTutorial }) => {
   return (
     <div className="container-fluid">
-      { challengeStatus === 'complete' ? <LevelAdvance /> : null }
-      { challengeStatus === 'all-complete' ? <Ending /> : null }
+      { challengeStatus === 'incomplete' && <button className="tutorialOpen" onClick={openTutorial}>?</button> }
+      { challengeStatus === 'complete' && <LevelAdvance />}
+      { challengeStatus === 'all-complete' && <Ending />}
+      { challengeStatus === 'tutorial' && <Tutorial />}
       { children }
       <div className="row console">
         <ChallengeText />
@@ -29,4 +34,10 @@ const mapState = ({ challengeStatus }, { children }) => ({
   children,
 })
 
-export default connect(mapState)(App)
+const mapDispatch = (dispatch => ({
+  openTutorial: () => {
+    dispatch(setChallengeStatus('tutorial'))
+  }
+}))
+
+export default connect(mapState, mapDispatch)(App)
