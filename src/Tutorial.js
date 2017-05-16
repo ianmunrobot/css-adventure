@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { setChallengeStatus } from './redux/reducers/challengeStatusReducer'
 
 import './Start.css'
-import robot from './img/robot1-animation(no-height-change).gif'
-
 
 const Tutorial = ({ closeTutorial }) => {
 

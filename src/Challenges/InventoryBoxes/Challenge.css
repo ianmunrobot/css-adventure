@@ -7,6 +7,10 @@
   width: 200px;
 }
 
+.inventory-ul {
+  padding: 20px 20px;
+}
+
 .inventory-li {
   border: 1px solid white;
 }
