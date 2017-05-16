@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Tooltip from '../Tooltip'
 
 class SingleChallenge extends React.Component {
   constructor(props) {
